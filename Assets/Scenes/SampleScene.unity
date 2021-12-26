@@ -684,7 +684,7 @@ MonoBehaviour:
   downButton: 115
   leftButton: 97
   rightButton: 100
-  speed: 0.01
+  speed: 1
 --- !u!1 &808308640
 GameObject:
   m_ObjectHideFlags: 0
