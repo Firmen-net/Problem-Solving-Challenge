@@ -11,24 +11,20 @@ public class control : MonoBehaviour
    
 
     private Rigidbody2D rb;
-    public float speed = 1f;
+    public float speed = 0.1f;
 
-    private Vector3 mousePosition = Input.mousePosition;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
 
-         /* if (Input.GetKey(upButton))
+          if (Input.GetKey(upButton))
           {
               rb.transform.Translate(0, speed, Time.deltaTime);
           }
@@ -43,8 +39,9 @@ public class control : MonoBehaviour
            if (Input.GetKey(downButton))
           {
               rb.transform.Translate(0, -speed, Time.deltaTime);
-          }*/
+          }
          
-        rb.transform.position = Vector2.MoveTowards(rb.transform.position, mousePosition,speed*Time.deltaTime);
+        
     }
+   
 }
