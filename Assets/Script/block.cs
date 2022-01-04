@@ -7,26 +7,33 @@ public class block : MonoBehaviour
 {
     private Rigidbody2D rb;
     public score score;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
-    
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger!");
         if (collision.gameObject.CompareTag("Player"))
         {
-            score.GetComponent<score>().AddScore(1);
+            MonoBehaviour camMono = this.gameObject.GetComponent<MonoBehaviour>();
             Debug.Log("Tabrak");
+            score.GetComponent<score>().AddScore(1);
             this.gameObject.SetActive(false);
+            Invoke("wait", 3.0f);
         }
+    }
+
+    private void wait()
+    {
+        this.gameObject.transform.position = new Vector3(Random.Range(-6.0f, 7.0f), Random.Range(-3.0f, 3.5f), 0);
+        this.gameObject.SetActive(true);
     }
 }
